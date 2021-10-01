@@ -20,10 +20,10 @@ class App extends Component {
         return (
             <Router>
                 <Navigation />
-                <hr />>
+                <hr />
                 <Route exact path={ROUTES.LANDING} component={Landing} />
-                <Route path={ROUTES.SING_UP} component={SignUp} />
-                <Route path={ROUTES.SING_IN} component={SignIn} />
+                <Route path={ROUTES.SIGN_UP} component={SignUp} />
+                <Route path={ROUTES.SIGN_IN} component={SignIn} />
                 <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForget} />
                 <Route path={ROUTES.HOME} component={Home} />
                 <Route path={ROUTES.ACCOUNT} component={Account} />
