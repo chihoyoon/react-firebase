@@ -1,3 +1,7 @@
+# Firebase config
+/src/components/firebase/firebase.js
+
+
 # Logs
 logs
 *.log
