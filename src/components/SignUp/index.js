@@ -84,7 +84,7 @@ class SignUpFormBase extends Component {
                 </Form.Group>
                 <Form.Group className="mb-3 col-auto" name="password" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control name="passwordOne" value={passwordOne} type="password" placeholder="Password" />
+                    <Form.Control name="passwordOne" value={passwordOne} onChange={this.onChange} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3 col-auto" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>

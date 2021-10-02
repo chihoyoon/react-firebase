@@ -62,7 +62,7 @@ class SignInFormBase extends Component {
                 </Form.Group>
                 <Form.Group className="mb-3 col-auto" name="password" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control name="passwordOne" value={password} type="password" placeholder="Password" />
+                    <Form.Control name="password" value={password} onChange={this.onChange} type="password" placeholder="Password" />
                 </Form.Group>                 
                 <Button variant="primary" type="submit" disabled={isInvalid}>
                     Sign In
