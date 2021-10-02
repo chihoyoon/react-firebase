@@ -11,10 +11,10 @@ const PasswordForget = () => (
     </div>
 );
 
-const INITIAL_STATE =(
-    email: '',
+const INITIAL_STATE ={
+     email: '',
     error: null,
-);
+};
 
 class PasswordForgetFormBase extends Component {
     constructor(props) {

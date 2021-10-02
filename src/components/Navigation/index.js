@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {Navbar, Container, Nav} from 'react-bootstrap';
 
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
@@ -16,34 +17,36 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.HOME}>Home</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li>
-        <li>
-            <SignOutButton />
-        </li>
-    </ul>
+    <Navbar bg="dark" expand="lg">
+        <Container>
+            <h3 className="text-warning">Harmonia Wellness</h3>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+                <Nav.Link><Link to={ROUTES.LANDING}>SHOW ROOM</Link></Nav.Link>
+                <Nav.Link><Link to={ROUTES.HOME}>HOME</Link></Nav.Link>
+                <Nav.Link><Link to={ROUTES.ACCOUNT}>ACCOUNT</Link></Nav.Link>
+                <Nav.Link><Link to={ROUTES.ADMIN}>ADMIN</Link></Nav.Link>
+                <Nav.Link><SignOutButton /></Nav.Link>                                                                                    
+            </Nav>
+            </Navbar.Collapse>
+        </Container>
+    </Navbar>
 );
 
 const NavigationNonAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to ={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-    </ul>
+    <Navbar bg="dark" expand="lg">
+        <Container>
+            <h3 className="text-warning">Harmonia Wellness</h3>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+                <Nav.Link><Link to={ROUTES.LANDING}>SHOW ROOM</Link></Nav.Link>
+                <Nav.Link><Link to ={ROUTES.SIGN_IN}>SIGN IN</Link></Nav.Link>                                                                                   
+            </Nav>
+            </Navbar.Collapse>
+        </Container>
+    </Navbar>
 )
 
 export default Navigation;

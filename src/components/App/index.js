@@ -1,8 +1,7 @@
 import React from 'react';
-import { 
-    BrowserRouter as Router,
-    Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router , Route, Switch } from 'react-router-dom';
+
+import './App.css';
 
 import Navigation from '../Navigation';
 import Landing from '../Landing';
@@ -21,19 +20,29 @@ const App = () => (
         <div>
             <Navigation />
 
-            <hr />
+            <Switch>
+                <Route exact path={ROUTES.LANDING} component={Landing_} />
+                <Route path={ROUTES.SIGN_UP} component={SignUp_} />
+                <Route path={ROUTES.SIGN_IN} component={SignIn_} />
+                <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForget_} />
+                <Route path={ROUTES.HOME} component={Home_} />
+                <Route path={ROUTES.ACCOUNT} component={Account_} />
+                <Route path={ROUTES.ADMIN} component={Admin_} />
+            </Switch>
             
-            <Route exact path={ROUTES.LANDING} component={Landing} />
-            <Route path={ROUTES.SIGN_UP} component={SignUp} />
-            <Route path={ROUTES.SIGN_IN} component={SignIn} />
-            <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForget} />
-            <Route path={ROUTES.HOME} component={Home} />
-            <Route path={ROUTES.ACCOUNT} component={Account} />
-            <Route path={ROUTES.ADMIN} component={Admin} />
         </div>
         
     </Router>
 )
+
+
+function Landing_() {return <Landing />};
+function SignUp_() {return <SignUp />};
+function SignIn_() {return <SignIn />};
+function PasswordForget_() {return <PasswordForget />};
+function Home_() {return <Home />};
+function Account_() {return <Account />};
+function Admin_() {return <Admin />};
 
 
 

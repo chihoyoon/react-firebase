@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
-import app from "firebase/app";
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getDatabase } from 'firebase/database';
 
  const config = {
     apiKey: "AIzaSyDRu_RcDneZSdolHqQMT10H8hzIVfkvWbE",
@@ -15,9 +15,9 @@ import 'firebase/database';
   
 class Firebase {
     constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-        this.db = app.database();
+        const app = initializeApp(config);
+        this.auth = getAuth();
+        this.db = getDatabase();
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>

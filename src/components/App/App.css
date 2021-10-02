@@ -1,0 +1,12 @@
+body {
+    background-color: thistle;
+  };
+  
+  .App {
+    text-align: center;
+  }
+  
+  img {
+    display: block;
+    margin: auto;
+  }

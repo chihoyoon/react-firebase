@@ -1,22 +1,6 @@
-import React from 'react';
-
-import { AuthUserContext, withAuthorization } from '../Session';
-import { PasswordForgetForm } from '../PasswordForget';
-import PasswordChangeForm from '../PasswordChange';
-import { withAuthorization } from '../Session';
+import FirebaseContext, { withFirebase } from '../Firebase/context';
+import Firebase from '../Firebase';
  
-const AccountPage = () => (
-  <AuthUserContext.Consumer>
-    {authUser => (
-      <div>
-        <h1>Account: {authUser.email}</h1>
-        <PasswordForgetForm />
-        <PasswordChangeForm />
-      </div>
-    )}
-  </AuthUserContext.Consumer>
-);
+export default Firebase;
  
-const condition = authUser => !!authUser;
- 
-export default withAuthorization(condition)(Account);
+export { FirebaseContext, withFirebase };

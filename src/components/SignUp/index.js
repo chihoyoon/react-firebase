@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
-import { withFirebase } from '..Firebase';
+import {Form, Button} from 'react-bootstrap';
+
+import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignUp = () => (
     <div>
-        <h1>SignUp</h1>
+        <h1>Sign Up</h1>
         <SignUpForm />        
     </div>
 );
@@ -52,7 +54,7 @@ class SignUpFormBase extends Component {
     };
 
     onChange = event => {
-        this.setState({ [event.target.name]: TextEvent.target.value});
+        this.setState({ [event.target.name]: event.target.value});
     };
 
     render() {
@@ -70,42 +72,30 @@ class SignUpFormBase extends Component {
             email === '' ||
             username === '';
 
-        return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="username"
-                    value={username}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Full Name"
-                />
-                <input
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input
-                    name="passwordOne"
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
-                />
-                <input
-                    name="passwordTwo"
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
-                <button disabled={isInvalid} type="submit">
+        return (            
+             <Form onSubmit={this.onSubmit} className="w-75 m-5 justify-content-center">
+                <Form.Group className="mb-3 col-auto" controlId="formBasicEmail">
+                    <Form.Label>User Name</Form.Label>
+                    <Form.Control name="username" value={username} onChange={this.onChange} type="text" placeholder="Full Name" />                    
+                </Form.Group>
+                <Form.Group className="mb-3 col-auto">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control name="email" value={email} onChange={this.onChange} type="text" placeholder="Email Address" />                  
+                </Form.Group>
+                <Form.Group className="mb-3 col-auto" name="password" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name="passwordOne" value={passwordOne} type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3 col-auto" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name="passwordTwo" value={passwordTwo} onChange={this.onChange} type="password" placeholder="Confirm Password" />
+                </Form.Group>                 
+                <Button variant="primary" type="submit" disabled={isInvalid}>
                     Sign Up
-                </button>
-            
+                </Button>
+
                 {error && <p>{error.message}</p>}
-            </form>
+            </Form>             
         );
     }
 }

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import{ compose } from 'recompose';
 
+import {Form, Button} from 'react-bootstrap';
+
 import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
@@ -9,9 +11,9 @@ import * as ROUTES from '../../constants/routes';
 
 const SignIn = () => (
     <div>
-        <h1>SignIn</h1>
+        <h1>Sign In</h1>
         <SignInForm />
-        <PasswordForgetLink />>
+        <PasswordForgetLink />
         <SignUpLink />
     </div>
 );
@@ -53,28 +55,21 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === '';
         
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name='email'
-                    value={email}
-                    onChange={this.onChange}
-                    type='text'
-                    placeholder='Email Address'
-                />
-                <input
-                    name='password'
-                    value={password}
-                    onchange={this.onChange}
-                    type='password'
-                    placeholder='password'
-                />
-                <button disabled={isInvalid} type='submit'>
+            <Form onSubmit={this.onSubmit} className="w-75 m-5 justify-content-center">
+                <Form.Group className="mb-3 col-auto">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control name="email" value={email} onChange={this.onChange} type="text" placeholder="Email Address" />                  
+                </Form.Group>
+                <Form.Group className="mb-3 col-auto" name="password" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name="passwordOne" value={password} type="password" placeholder="Password" />
+                </Form.Group>                 
+                <Button variant="primary" type="submit" disabled={isInvalid}>
                     Sign In
-                </button>
+                </Button>
 
                 {error && <p>{error.message}</p>}
-                <h1>SignIn</h1>
-            </form>
+            </Form> 
         );
     }
 }
