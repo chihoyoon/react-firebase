@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AuthUserContext from './context';
+import withAuthentication from './withAuthentication';
 
 class Session extends Component {
     render() {
@@ -11,3 +13,4 @@ class Session extends Component {
 }
 
 export default Session;
+export { AuthUserContext, withAuthentication };
