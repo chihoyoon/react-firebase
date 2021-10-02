@@ -26,7 +26,7 @@ class SignUpFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
 
-    onSubmit = event => {
+    onSubmit = e => {
         const { username, email, passwordOne } = this.state;
 
         this.props.firebase
@@ -39,12 +39,12 @@ class SignUpFormBase extends Component {
             this.setState({ error });
             });
     
-        event.preventDefault();
+        e.preventDefault();
 
     };
 
     onChange = event => {
-        this.setState({ [event.target.name]: event.target.value});
+        this.setState({ [event.target.name]: TextEvent.target.value});
     };
 
     render() {
